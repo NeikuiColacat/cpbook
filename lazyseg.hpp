@@ -1,10 +1,10 @@
 template <typename T, typename LZ, T(*merT)(T, T), LZ(*merLZ)(LZ, LZ), T(*setag)(T, LZ)>
 struct lazyseg {
-    std::vector<T> tr;
-    std::vector<LZ> lz;
     const int N;
     const T Te;
     const LZ LZe;
+    std::vector<T> tr;
+    std::vector<LZ> lz;
     lazyseg(int siz, T te, LZ lze) : N(siz), Te(te), LZe(lze) {
         tr.assign((N + 10) << 2, Te);
         lz.assign((N + 10) << 2, LZe);
