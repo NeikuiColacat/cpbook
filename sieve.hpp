@@ -5,10 +5,11 @@ struct sieve {
         for (int i = 2;i <= N;i++) {
             if (!mnfac[i]) {
                 prime.push_back(i);
-                for (int j = 0;(long long)prime[j] * i <= N;j++) {
-                    mnfac[prime[j] * i] = prime[j];
-                    if (i % prime[j] == 0)break;
-                }
+                mnfac[i] = i;
+            }
+            for (int j = 0;(long long)prime[j] * i <= N;j++) {
+                mnfac[prime[j] * i] = prime[j];
+                if (i % prime[j] == 0)break;
             }
         }
     }
