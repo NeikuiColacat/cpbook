@@ -6,10 +6,10 @@
 #define x first
 #define y second
 #define si(x) ((int)x.size())
+using i64 = long long;
 using std::cout, std::cin, std::endl,std::max,std::min,std::swap;
 template<typename T> using vec=std::vector<T>;
 using P = std::pair<int,int>;
-using i64 = long long;
 
 void solve() {
     ${0}
