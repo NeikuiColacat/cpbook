@@ -70,4 +70,7 @@ struct lazyseg {
         if (qr > mid) res = merT(res, qry(u << 1 | 1, mid + 1, r, ql, qr));
         return res;
     }
+    void modify(const int ql, const int qr, const LZ val) { modify(1, 1, N, ql, qr, val); }
+    void set(const int pos, const T val) { set(1, 1, N, pos, val); }
+    T qry(const int ql, const int qr) { return qry(1, 1, N, ql, qr); }
 };
