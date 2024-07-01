@@ -1,4 +1,3 @@
-#include<bits/stdc++.h>
 constexpr int mod = 1e9+7 , N = 1e5 + 10;
 std::vector<int> pw(N+1);
 int fp(int a, int n, int mod) {
