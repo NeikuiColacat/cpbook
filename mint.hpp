@@ -1,35 +1,45 @@
+template<const int mod>
 struct mint {
-    int num , mod = 998244353;
-    mint(int num) : num(num) {}
-    mint(int num, int mod) : num(num), mod(mod) {}
+    int num = 0;
+    mint(){}
+    mint(long long num) : num(num) {}
+    mint(long long num, int mod) : num(num), mod(mod) {}
+    mint(const mint & other) : num(other.num) {}
 
     mint operator+(const mint & other) {
-        return ((long long)num + other.num )% mod;
+        int res = ((long long)num + other.num )% mod;
+        return mint(res);
     }
     mint operator-(const mint& other) {
-        return ((long long)num - other.num + mod) % mod;
+        int res = ((long long)num - other.num + mod) % mod;
+        return mint(res);
     }
     mint operator*(const mint& other) {
-        return (long long)num * other.num % mod;
+        int res = (long long)num * other.num % mod;
+        return mint(res);
     }
     mint operator*=(const mint& other) {
-        return num = (long long)num * other.num % mod;
+        num = (long long)num * other.num % mod;
+        return mint(num);
     }
     mint operator+=(const mint & other) {
-        return num = ((long long)num + other.num) % mod;
+        num = ((long long)num + other.num) % mod;
+        return mint(num);
     }
     mint operator-=(const mint& other) {
-        return num = ((long long)num - other.num + mod) % mod;
+        num = ((long long)num - other.num + mod) % mod;
+        return mint(num);
     }
-    mint operator=(const int& val) {
-        num = val;
+    bool operator==(const mint& other) {
+        return num == other.num;
     }
-    mint operator=(const mint& other) {
-        num = other.num;
+    bool operator!=(const mint& other) {
+        return num != other.num;
     }
+
     friend std::istream& operator>>(std::istream& is, mint& modNumber) {
         is >> modNumber.num;
-        modNumber.num %= modNumber.mod;
+        modNumber.num = (modNumber.num % modNumber.mod + modNumber.mod) % modNumber.mod;
         return is;
     }
     friend std::ostream& operator<<(std::ostream& os, const mint& modNumber) {
