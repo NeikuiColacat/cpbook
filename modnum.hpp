@@ -3,7 +3,6 @@ struct modnum {
     int num = 0;
     modnum(){}
     modnum(long long num) : num(num) {}
-    modnum(long long num, int mod) : num(num), mod(mod) {}
     modnum(const modnum & other) : num(other.num) {}
 
     modnum operator+(const modnum & other) {
