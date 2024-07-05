@@ -1,48 +1,48 @@
 template<const int mod>
-struct mint {
+struct modnum {
     int num = 0;
-    mint(){}
-    mint(long long num) : num(num) {}
-    mint(long long num, int mod) : num(num), mod(mod) {}
-    mint(const mint & other) : num(other.num) {}
+    modnum(){}
+    modnum(long long num) : num(num) {}
+    modnum(long long num, int mod) : num(num), mod(mod) {}
+    modnum(const modnum & other) : num(other.num) {}
 
-    mint operator+(const mint & other) {
+    modnum operator+(const modnum & other) {
         int res = ((long long)num + other.num )% mod;
-        return mint(res);
+        return modnum(res);
     }
-    mint operator-(const mint& other) {
+    modnum operator-(const modnum& other) {
         int res = ((long long)num - other.num + mod) % mod;
-        return mint(res);
+        return modnum(res);
     }
-    mint operator*(const mint& other) {
+    modnum operator*(const modnum& other) {
         int res = (long long)num * other.num % mod;
-        return mint(res);
+        return modnum(res);
     }
-    mint operator*=(const mint& other) {
+    modnum operator*=(const modnum& other) {
         num = (long long)num * other.num % mod;
-        return mint(num);
+        return modnum(num);
     }
-    mint operator+=(const mint & other) {
+    modnum operator+=(const modnum & other) {
         num = ((long long)num + other.num) % mod;
-        return mint(num);
+        return modnum(num);
     }
-    mint operator-=(const mint& other) {
+    modnum operator-=(const modnum& other) {
         num = ((long long)num - other.num + mod) % mod;
-        return mint(num);
+        return modnum(num);
     }
-    bool operator==(const mint& other) {
+    bool operator==(const modnum& other) {
         return num == other.num;
     }
-    bool operator!=(const mint& other) {
+    bool operator!=(const modnum& other) {
         return num != other.num;
     }
 
-    friend std::istream& operator>>(std::istream& is, mint& modNumber) {
+    friend std::istream& operator>>(std::istream& is, modnum& modNumber) {
         is >> modNumber.num;
         modNumber.num = (modNumber.num % modNumber.mod + modNumber.mod) % modNumber.mod;
         return is;
     }
-    friend std::ostream& operator<<(std::ostream& os, const mint& modNumber) {
+    friend std::ostream& operator<<(std::ostream& os, const modnum& modNumber) {
         os << modNumber.num;
         return os;
     }
