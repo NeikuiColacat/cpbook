@@ -1,4 +1,3 @@
-#include <bits/stdc++.h>
 struct mint {
     int num , mod = 998244353;
     mint(int num) : num(num) {}
