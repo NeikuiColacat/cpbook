@@ -36,6 +36,19 @@ struct modnum {
         return num != other.num;
     }
 
+    modnum inv() {
+        int x, y;
+        exgcd(num, mod, x, y);
+        return modnum((x%mod + mod)%mod);
+    }
+    void exgcd(int a, int b, int& x, int& y) {
+        if (b == 0) {
+            x = 1, y = 0;
+            return;
+        }
+        exgcd(b, a % b, y, x);
+        y -= a / b * x;
+    }
     friend std::istream& operator>>(std::istream& is, modnum& modNumber) {
         is >> modNumber.num;
         modNumber.num = (modNumber.num % modNumber.mod + modNumber.mod) % modNumber.mod;
