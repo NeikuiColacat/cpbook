@@ -51,7 +51,7 @@ struct modnum {
     }
     friend std::istream& operator>>(std::istream& is, modnum& modNumber) {
         is >> modNumber.num;
-        modNumber.num = (modNumber.num % modNumber.mod + modNumber.mod) % modNumber.mod;
+        modNumber.num = (modNumber.num % mod + mod) % mod;
         return is;
     }
     friend std::ostream& operator<<(std::ostream& os, const modnum& modNumber) {
