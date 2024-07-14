@@ -2,7 +2,7 @@ template<const int mod>
 struct modnum {
     int num = 0;
     modnum(){}
-    modnum(long long num) : num(num) {}
+    modnum(long long num) : num((num % mod + mod)%mod) {}
     modnum(const modnum & other) : num(other.num) {}
 
     modnum operator+(const modnum & other) {
