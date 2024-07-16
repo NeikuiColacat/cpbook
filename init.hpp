@@ -9,8 +9,8 @@
 #define int long long 
 using std::cout, std::cin, std::endl;
 using std::max, std::min, std::swap, std::vector, std::string;
-using i64 = long long;
-using i32 = signed;
+using i64 = int_fast64_t;
+using i32 = int_fast32_t;
 using P = std::pair<int,int>;
 template<typename T> using vec=std::vector<T>;
 
