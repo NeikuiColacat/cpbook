@@ -5,7 +5,7 @@
 #include <bits/stdc++.h>
 #define fi first
 #define se second
-#define si(x) ((int)x.size())
+#define si(x) ((i32)x.size())
 #define int long long 
 using std::cout, std::cin, std::endl;
 using std::max, std::min, std::swap, std::vector, std::string;
