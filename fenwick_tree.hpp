@@ -1,25 +1,25 @@
 template<typename T> 
 struct fenwick_tree {
-    const int N;
+    const i32 N;
     T e;
     std::vector<T> tr;
-    fenwick_tree(int siz , T e) : N(siz) , tr(std::vector<T>(N+1)) , e(e) {}
+    fenwick_tree(i32 siz , T e) : N(siz) , tr(std::vector<T>(N+1)) , e(e) {}
 
-    void add(int pos, T val) {
-        for (int i = pos;i<=N;i += i & -i) {
+    void add(i32 pos, T val) {
+        for (i32 i = pos;i<=N;i += i & -i) {
             tr[i] += val;
         }
     }
 
-    T qry(int pos) {
+    T qry(i32 pos) {
         T res = e;
-        for (int i = pos;i;i -= i & -i) {
+        for (i32 i = pos;i;i -= i & -i) {
             res += tr[i];
         }
         return res;
     }
 
-    T qry(int l, int r) {
+    T qry(i32 l, i32 r) {
         return qry(r) - qry(l - 1);
     }
 };

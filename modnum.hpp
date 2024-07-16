@@ -1,20 +1,20 @@
-template<const int mod>
+template<const i32 mod>
 struct modnum {
-    int num = 0;
+    i32 num = 0;
     modnum(){}
     modnum(long long num) : num((num % mod + mod)%mod) {}
     modnum(const modnum & other) : num(other.num) {}
 
     modnum operator+(const modnum & other) {
-        int res = ((long long)num + other.num )% mod;
+        i32 res = ((long long)num + other.num )% mod;
         return modnum(res);
     }
     modnum operator-(const modnum& other) {
-        int res = ((long long)num - other.num + mod) % mod;
+        i32 res = ((long long)num - other.num + mod) % mod;
         return modnum(res);
     }
     modnum operator*(const modnum& other) {
-        int res = (long long)num * other.num % mod;
+        i32 res = (long long)num * other.num % mod;
         return modnum(res);
     }
     modnum operator*=(const modnum& other) {
@@ -37,11 +37,11 @@ struct modnum {
     }
 
     modnum inv() {
-        int x, y;
+        i32 x, y;
         exgcd(num, mod, x, y);
         return modnum((x%mod + mod)%mod);
     }
-    void exgcd(int a, int b, int& x, int& y) {
+    void exgcd(i32 a, i32 b, i32& x, i32& y) {
         if (b == 0) {
             x = 1, y = 0;
             return;
