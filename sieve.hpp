@@ -7,7 +7,7 @@ struct sieve {
                 prime.push_back(i);
                 mnfac[i] = i;
             }
-            for (i32 j = 0;(long long)prime[j] * i <= N;j++) {
+            for (i32 j = 0;(i64)prime[j] * i <= N;j++) {
                 mnfac[prime[j] * i] = prime[j];
                 if (i % prime[j] == 0)break;
             }

@@ -2,31 +2,31 @@ template<const i32 mod>
 struct modnum {
     i32 num = 0;
     modnum(){}
-    modnum(long long num) : num((num % mod + mod)%mod) {}
+    modnum(i64 num) : num((num % mod + mod)%mod) {}
     modnum(const modnum & other) : num(other.num) {}
 
     modnum operator+(const modnum & other) {
-        i32 res = ((long long)num + other.num )% mod;
+        i32 res = ((i64)num + other.num )% mod;
         return modnum(res);
     }
     modnum operator-(const modnum& other) {
-        i32 res = ((long long)num - other.num + mod) % mod;
+        i32 res = ((i64)num - other.num + mod) % mod;
         return modnum(res);
     }
     modnum operator*(const modnum& other) {
-        i32 res = (long long)num * other.num % mod;
+        i32 res = (i64)num * other.num % mod;
         return modnum(res);
     }
     modnum operator*=(const modnum& other) {
-        num = (long long)num * other.num % mod;
+        num = (i64)num * other.num % mod;
         return modnum(num);
     }
     modnum operator+=(const modnum & other) {
-        num = ((long long)num + other.num) % mod;
+        num = ((i64)num + other.num) % mod;
         return modnum(num);
     }
     modnum operator-=(const modnum& other) {
-        num = ((long long)num - other.num + mod) % mod;
+        num = ((i64)num - other.num + mod) % mod;
         return modnum(num);
     }
     bool operator==(const modnum& other) {

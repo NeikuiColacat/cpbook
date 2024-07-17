@@ -1,12 +1,12 @@
 template <typename T, T(*merT)(T, T)>
-struct lazyseg {
+struct seg {
     const i32 N;
     const T Te;
     std::vector<T> tr;
-    lazyseg(i32 siz, T te) : N(siz), Te(te){
+    seg(i32 siz, T te) : N(siz), Te(te){
         tr.assign((N + 10) << 2, Te);
     }
-    lazyseg(i32 siz, T te , const std::vector<T>& a) : N(siz), Te(te){
+    seg(i32 siz, T te , const std::vector<T>& a) : N(siz), Te(te){
         tr.resize((N + 10) << 2);
         build(1, 1, N, a);
     }
