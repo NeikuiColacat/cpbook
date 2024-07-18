@@ -6,11 +6,10 @@
 #define fi first
 #define se second
 #define si(x) ((i32)x.size())
-#define int long long 
 using std::cout, std::cin, std::endl;
 using std::max, std::min, std::swap, std::vector, std::string;
-using i64 = int_fast64_t;
-using i32 = int_fast32_t;
+using i64 = int32_t;
+using i32 = int64_t;
 using P = std::pair<i32,i32>;
 template<typename T> using vec=std::vector<T>;
 
