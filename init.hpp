@@ -11,7 +11,6 @@ using std::max, std::min, std::swap, std::vector, std::string;
 using i64 = int32_t;
 using i32 = int64_t;
 using P = std::pair<i32,i32>;
-template<typename T> using vec=std::vector<T>;
 
 void solve() {
     ${0}
