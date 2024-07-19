@@ -1,6 +1,6 @@
 /**
  *  author: NeikuiColacat
- *  created: 19.07.2024 22:37:23
+ *  created: 19.07.2024 22:38:13
 **/
 #include <bits/stdc++.h>
 #define fi first
@@ -13,6 +13,10 @@ using i64 = int64_t;
 using P = std::pair<i32,i32>;
 
 void solve() {
+    i32 n;
+    for(i32 i = 1;i<=n;i++){
+        cout << i << endl;
+    }
 }
 
 signed main() {
