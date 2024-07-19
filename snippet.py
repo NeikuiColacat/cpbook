@@ -13,6 +13,11 @@ for subdir in os.walk(path):
   if '.git' in subdir[0]:
     continue
   for filename in subdir[2]:
+    if  filename == '.clang-format' : continue
+    if  filename == '.clang-tidy' : continue
+    if  filename == 'Makefile' : continue
+
+    
     name, extension = filename.split('.')
     if extension != 'hpp':
       continue
