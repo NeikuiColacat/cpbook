@@ -2,7 +2,6 @@ BasedOnStyle: Google
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse 
 AllowShortBlocksOnASingleLine: Always
-AllowShortIfStatementsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: Inline
-AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true 
