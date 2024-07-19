@@ -19,7 +19,8 @@ void solve() {
 signed main() {
     std :: ios::sync_with_stdio(0);
     cin.tie(0) , cout.tie(0);
-    i32 t;cin >> t;while(t--)
-    solve();
+    i32 t;
+    cin >> t;
+    while (t--) solve();
     return 0;
 }  
