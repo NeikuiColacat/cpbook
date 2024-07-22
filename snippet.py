@@ -6,7 +6,7 @@ import sys
 
 snippets = {}
 
-path = '/Users/cola/acm/cpbook'
+path = '/home/colacat/acm/cpbook'
 for subdir in os.walk(path):
   if subdir[0] == '.' or subdir[0][2] == '.':
     continue
@@ -36,7 +36,7 @@ for subdir in os.walk(path):
 
     print(f'generated snippet {name}', file=sys.stderr)
 
-with open('/Users/cola/Library/Application Support/Code/User/snippets/cpp.json', 'w') as f:
+with open('/mnt/c/Users/neiku/AppData/Roaming/Code/User/snippets/cpp.json', 'w') as f:
   f.write(json.dumps(snippets, indent=2))
-
+#C:\Users\neiku\AppData\Roaming\Code\User\snippets
 print('done', file=sys.stderr)
