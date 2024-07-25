@@ -8,8 +8,8 @@
 #define si(x) ((i32)x.size())
 using std::cout, std::cin, std::endl;
 using std::max, std::min, std::swap, std::vector, std::string;
-using i32 = int32_t;
-using i64 = int64_t;
+using i32 = signed int;
+using i64 = long long;
 using P = std::pair<i32,i32>;
 
 void solve() {
