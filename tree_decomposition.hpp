@@ -12,7 +12,7 @@ struct tree_decomposition{
             if(dep[i]) continue;
             dep[i] = dep[u] + 1;
             fa[i] = u;
-            dfs1(i, u);
+            dfs1(i);
             siz[u] += siz[i];
             if (son[u] == -1 || siz[i] > siz[son[u]]) son[u] = i;
         }
