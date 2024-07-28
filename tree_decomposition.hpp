@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using i32 = int;
 struct tree_decomposition{
     const int N , root;
     i32 cnt = 0;
@@ -7,9 +5,10 @@ struct tree_decomposition{
     std::vector<i32> fa, dep, siz, son, top, dfn, rnk;
 
     void dfs1(i32 u) {
+        if(u == root) fa[u] = u;
         son[u] = -1, siz[u] = 1;
         for (i32 i : g[u]) {
-            if(dep[i]) continue;
+            if(siz[i]) continue;
             dep[i] = dep[u] + 1;
             fa[i] = u;
             dfs1(i);
@@ -39,6 +38,7 @@ struct tree_decomposition{
           top(std::vector<i32>(N + 1)),
           dfn(std::vector<i32>(N + 1)),
           rnk(std::vector<i32>(N + 1)) {
-            
-          }
+        dfs1(root);
+        dfs2(root , root);
+    }
 };
