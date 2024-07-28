@@ -3,7 +3,6 @@ struct modnum {
     i32 num = 0;
     modnum(){}
     modnum(i64 num) : num((num % mod + mod)%mod) {}
-    modnum(const modnum & other) : num(other.num) {}
 
     modnum operator+(const modnum & other) {
         i32 res = ((i64)num + other.num )% mod;
