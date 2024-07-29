@@ -28,6 +28,8 @@ struct tarjan{
             }
             one_scc.push_back(u);
             in_stk[u] = 0;
+            stk.pop_back();
+            scc.push_back(one_scc);
         }
     }
     tarjan(i32 siz, std::vector<std::vector<i32>> graph)
@@ -35,5 +37,9 @@ struct tarjan{
           g(graph),
           dfn(std::vector<i32>(N + 1)),
           low(std::vector<i32>(N + 1)),
-          in_stk(std::vector<i32>(N + 1)) {}
+          in_stk(std::vector<i32>(N + 1)) {
+        for (i32 i = 1; i <= N; i++) {
+            if (!dfn[i]) { dfs(i); }
+        }
+    }
 };
