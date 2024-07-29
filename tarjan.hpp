@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using i32 = signed int;
 struct SCC{
     const i32 N;
     i32 cnt = 0;
