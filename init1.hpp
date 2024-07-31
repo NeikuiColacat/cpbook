@@ -3,8 +3,8 @@
  *  created: $CURRENT_DATE.$CURRENT_MONTH.$CURRENT_YEAR $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND
 **/
 #include <bits/stdc++.h>
-#define fi first
-#define se second
+#define x first
+#define y second
 #define si(x) ((i32)x.size())
 using std::cout, std::cin, std::endl;
 using std::max, std::min, std::swap, std::vector, std::string;
