@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-using i32 = int;
 template <typename T, T(*op)(T, T)>
 struct ST {
 	const i32 N;
