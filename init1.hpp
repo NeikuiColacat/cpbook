@@ -7,7 +7,8 @@
 #define y second
 #define si(x) ((i32)x.size())
 using std::cout, std::cin, std::endl;
-using std::max, std::min, std::swap, std::vector, std::string;
+using std::max, std::min, std::swap;
+using std::vector, std::string, std::map, std::set, std::queue, std::deque, std::priority_queue;
 using i32 = signed int;
 using i64 = long long;
 using P = std::pair<i32,i32>;
