@@ -5,11 +5,11 @@ struct modnum {
     modnum(i64 num) : num((num % mod + mod)%mod) {}
 
     modnum operator+(const modnum & other) {
-        i32 res = ((i64)num + other.num )% mod;
+        i32 res = (num + other.num )% mod;
         return modnum(res);
     }
     modnum operator-(const modnum& other) {
-        i32 res = ((i64)num - other.num + mod) % mod;
+        i32 res = (num - other.num + mod) % mod;
         return modnum(res);
     }
     modnum operator*(const modnum& other) {
@@ -21,11 +21,11 @@ struct modnum {
         return modnum(num);
     }
     modnum operator+=(const modnum & other) {
-        num = ((i64)num + other.num) % mod;
+        num = (num + other.num) % mod;
         return modnum(num);
     }
     modnum operator-=(const modnum& other) {
-        num = ((i64)num - other.num + mod) % mod;
+        num = (num - other.num + mod) % mod;
         return modnum(num);
     }
     bool operator==(const modnum& other) {
@@ -49,12 +49,12 @@ struct modnum {
         y -= a / b * x;
     }
     friend std::istream& operator>>(std::istream& is, modnum& modNumber) {
-        is >> modNumber.num;
-        modNumber.num = (modNumber.num % mod + mod) % mod;
+        i64 tmp;cin >> tmp;
+        modNumber.num = (tmp % mod + mod) % mod;
         return is;
     }
     friend std::ostream& operator<<(std::ostream& os, const modnum& modNumber) {
         os << modNumber.num;
         return os;
     }
-};
+}
