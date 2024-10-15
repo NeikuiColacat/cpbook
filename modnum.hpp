@@ -57,4 +57,4 @@ struct modnum {
         os << modNumber.num;
         return os;
     }
-}
+};
