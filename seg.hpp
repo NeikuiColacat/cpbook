@@ -10,9 +10,6 @@ struct seg {
     void down(i32 u) {
 
     }
-    void up(i32 u) { 
-        tr[u] = mer(tr[u << 1], tr[u << 1 | 1]); 
-    }
     void build(i32 u , i32 l , i32 r){
         if(l == r){
 
@@ -21,6 +18,9 @@ struct seg {
             build(u<<1,l,mi) , build(u<<1|1,mi+1,r);
             up(u);
         }
+    }
+    void up(i32 u) { 
+        tr[u] = mer(tr[u << 1], tr[u << 1 | 1]); 
     }
     void modify(i32 u, i32 l, i32 r, const i32 ql, const i32 qr,T val) {
         if (ql <= l && r <= qr) {
