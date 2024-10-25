@@ -6,8 +6,16 @@
 #define x first
 #define y second
 #define si(x) ((i32)x.size())
+<<<<<<< HEAD
 using namespace std;
 using i32 = int;
+=======
+#define endl '\n'
+using std::cout, std::cin;
+using std::max, std::min, std::swap;
+using std::vector, std::string, std::map, std::set, std::queue, std::deque, std::priority_queue;
+using i32 = signed int;
+>>>>>>> d219320fbf6305de97aa78c85fd83f9278b1be9f
 using i64 = long long;
 using P = std::pair<i32,i32>;
 template<typename T> void cmax(T & a , T b){a = max(a,b);}
