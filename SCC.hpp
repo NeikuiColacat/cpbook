@@ -1,9 +1,9 @@
 struct SCC{
     const i32 N;
     i32 cnt = 0;
-    std::vector<std::vector<i32>> g;
-    std::vector<std::vector<i32>> scc;
-    std::vector<i32> dfn, low, in_stk, stk;
+    vector<vector<i32>> g;
+    vector<vector<i32>> scc;
+    vector<i32> dfn, low, in_stk, stk;
 
     void dfs(i32 u) {
         cnt++;
@@ -13,13 +13,13 @@ struct SCC{
         for (i32 i : g[u]) {
             if (!dfn[i]) {
                 dfs(i);
-                low[u] = std::min(low[u], low[i]);
+                low[u] = min(low[u], low[i]);
             } else if (in_stk[i]) {
-                low[u] = std::min(low[u], dfn[i]);
+                low[u] = min(low[u], dfn[i]);
             }
         }
         if (low[u] == dfn[u]) {
-            scc.push_back(std::vector<i32>());
+            scc.push_back(vector<i32>());
             while (stk.back() != u) {
                 i32 i = stk.back();
                 stk.pop_back();
@@ -31,12 +31,12 @@ struct SCC{
             stk.pop_back();
         }
     }
-    SCC(i32 siz, std::vector<std::vector<i32>> graph)
+    SCC(i32 siz, vector<vector<i32>> graph)
         : N(siz),
           g(graph),
-          dfn(std::vector<i32>(N + 1)),
-          low(std::vector<i32>(N + 1)),
-          in_stk(std::vector<i32>(N + 1)) {
+          dfn(vector<i32>(N + 1)),
+          low(vector<i32>(N + 1)),
+          in_stk(vector<i32>(N + 1)) {
         for (i32 i = 1; i <= N; i++) {
             if (!dfn[i]) { dfs(i); }
         }

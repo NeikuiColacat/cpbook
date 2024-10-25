@@ -48,12 +48,12 @@ struct modnum {
         exgcd(b, a % b, y, x);
         y -= a / b * x;
     }
-    friend std::istream& operator>>(std::istream& is, modnum& modNumber) {
+    friend istream& operator>>(istream& is, modnum& modNumber) {
         i64 tmp;cin >> tmp;
         modNumber.num = (tmp % mod + mod) % mod;
         return is;
     }
-    friend std::ostream& operator<<(std::ostream& os, const modnum& modNumber) {
+    friend ostream& operator<<(ostream& os, const modnum& modNumber) {
         os << modNumber.num;
         return os;
     }

@@ -3,13 +3,13 @@ struct lazyseg {
     const i32 N;
     const T Te;
     const LZ LZe;
-    std::vector<T> tr;
-    std::vector<LZ> lz;
+    vector<T> tr;
+    vector<LZ> lz;
     lazyseg(i32 siz, T te, LZ lze) : N(siz), Te(te), LZe(lze) {
         tr.assign((N + 10) << 2, Te);
         lz.assign((N + 10) << 2, LZe);
     }
-    lazyseg(i32 siz, T te , LZ lze , const std::vector<T>& a) : N(siz), Te(te), LZe(lze) {
+    lazyseg(i32 siz, T te , LZ lze , const vector<T>& a) : N(siz), Te(te), LZe(lze) {
         tr.resize((N + 10) << 2);
         lz.assign((N + 10) << 2, LZe);
         build(1, 1, N, a);
@@ -24,7 +24,7 @@ struct lazyseg {
         lz[u << 1 | 1] = merLZ(lz[u << 1 | 1], lz[u]);
         lz[u] = LZe;
     }
-    void build(i32 u, i32 l, i32 r, const std::vector<T>& a) {
+    void build(i32 u, i32 l, i32 r, const vector<T>& a) {
         if (l == r) {
             tr[u] = a[l];
         }

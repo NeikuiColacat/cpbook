@@ -7,4 +7,3 @@ i32 fp(i32 a, i32 n, i32 mod) {
     }
     return res;
 }
-i32 inv(i32 x, i32 mod) { return fp(x, mod - 2, mod); }

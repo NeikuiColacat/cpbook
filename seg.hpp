@@ -2,18 +2,18 @@ template <typename T, T(*merT)(T, T)>
 struct seg {
     const i32 N;
     const T Te;
-    std::vector<T> tr;
+    vector<T> tr;
     seg(i32 siz, T te) : N(siz), Te(te){
         tr.assign((N + 10) << 2, Te);
     }
-    seg(i32 siz, T te , const std::vector<T>& a) : N(siz), Te(te){
+    seg(i32 siz, T te , const vector<T>& a) : N(siz), Te(te){
         tr.resize((N + 10) << 2);
         build(1, 1, N, a);
     }
     void pull(i32 u) {
         tr[u] = merT(tr[u << 1], tr[u << 1 | 1]);
     }
-    void build(i32 u, i32 l, i32 r, const std::vector<T>& a) {
+    void build(i32 u, i32 l, i32 r, const vector<T>& a) {
         if (l == r) {
             tr[u] = a[l];
         }

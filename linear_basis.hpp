@@ -1,5 +1,5 @@
 struct linear_basis{
-    std::vector<i64> bvec;
+    vector<i64> bvec;
     void insert(i64 ai){
         for (i32 i = 63; i >= 0; i--) {
             if (ai >> i & 1) {
@@ -14,7 +14,7 @@ struct linear_basis{
     i64 qrymx(){
         i64 res = 0;
         for(i32 i = 63;i>=0;i--){
-            res = std::max(res , bvec[i] ^ res);
+            res = max(res , bvec[i] ^ res);
         }
         return res;
     }
@@ -25,5 +25,5 @@ struct linear_basis{
         }
         return res;
     }
-    linear_basis() : bvec(std::vector<i64>(64)) {}
+    linear_basis() : bvec(vector<i64>(64)) {}
 };

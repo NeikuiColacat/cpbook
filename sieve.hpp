@@ -1,7 +1,7 @@
 struct sieve {
     const i32 N;
-    std::vector<i32> prime , mnfac;
-    sieve(i32 siz) : N(siz), mnfac(std::vector<i32>(N + 10)) {
+    vector<i32> prime , mnfac;
+    sieve(i32 siz) : N(siz), mnfac(vector<i32>(N + 10)) {
         for (i32 i = 2;i <= N;i++) {
             if (!mnfac[i]) {
                 prime.push_back(i);

@@ -1,8 +1,8 @@
 struct tree_decomposition{
     const int N , root;
     i32 cnt = 0;
-    std::vector<std::vector<i32>> g;
-    std::vector<i32> fa, dep, siz, son, top, dfn, rnk;
+    vector<vector<i32>> g;
+    vector<i32> fa, dep, siz, son, top, dfn, rnk;
 
     void dfs1(i32 u) {
         if(u == root) fa[u] = u;
@@ -27,17 +27,17 @@ struct tree_decomposition{
             if (i != fa[u] && i != son[u]) { dfs2(i, i); }
         }
     }
-    tree_decomposition(i32 siz, i32 rt, std::vector<std::vector<i32>> graph)
+    tree_decomposition(i32 siz, i32 rt, vector<vector<i32>> graph)
         : N(siz),
           root(rt),
           g(graph),
-          fa(std::vector<i32>(N + 1)),
-          dep(std::vector<i32>(N + 1)),
-          siz(std::vector<i32>(N + 1)),
-          son(std::vector<i32>(N + 1)),
-          top(std::vector<i32>(N + 1)),
-          dfn(std::vector<i32>(N + 1)),
-          rnk(std::vector<i32>(N + 1)) {
+          fa(vector<i32>(N + 1)),
+          dep(vector<i32>(N + 1)),
+          siz(vector<i32>(N + 1)),
+          son(vector<i32>(N + 1)),
+          top(vector<i32>(N + 1)),
+          dfn(vector<i32>(N + 1)),
+          rnk(vector<i32>(N + 1)) {
         dfs1(root);
         dfs2(root , root);
     }
