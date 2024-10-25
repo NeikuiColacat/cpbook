@@ -3,7 +3,7 @@ struct ST {
 	const i32 N;
 	vector<vector<T>> st;
     ST(i32 siz, const vector<T>& a)
-        : N(siz), st(vector<vector<T>>(N + 1, vector<T>(31))) {
+        : N(siz), st(N + 1, vector<T>(31)) {
         for (i32 i = 1; i <= N; i++) { st[i][0] = a[i]; }
 
         for (i32 i = 1; i <= log2(N); i++) {

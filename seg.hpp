@@ -1,49 +1,43 @@
-template <typename T, T(*merT)(T, T)>
+template <typename T>
 struct seg {
     const i32 N;
     const T Te;
     vector<T> tr;
-    seg(i32 siz, T te) : N(siz), Te(te){
-        tr.assign((N + 10) << 2, Te);
+    seg(i32 siz, T te) : N(siz), Te(te), tr((N + 10) << 2, Te) {}
+    T mer(T a, T b) {
+        // TODO
     }
-    seg(i32 siz, T te , const vector<T>& a) : N(siz), Te(te){
-        tr.resize((N + 10) << 2);
-        build(1, 1, N, a);
+    void apply(T& a, T b) {
+        // TODO
     }
-    void pull(i32 u) {
-        tr[u] = merT(tr[u << 1], tr[u << 1 | 1]);
+    void up(i32 u) { 
+        tr[u] = mer(tr[u << 1], tr[u << 1 | 1]); 
     }
-    void build(i32 u, i32 l, i32 r, const vector<T>& a) {
-        if (l == r) {
-            tr[u] = a[l];
+    void down(i32 u) {
+        apply(tr[u << 1], tr[u]);
+        apply(tr[u << 1 | 1], tr[u]);
+    }
+    void modify(i32 u, i32 l, i32 r, const i32 ql, const i32 qr,T val) {
+        if (ql <= l && r <= qr) {
+            apply(tr[u], val);
         }
         else {
+            down(u);
             i32 mid = l + r >> 1;
-            build(u << 1, l, mid, a);build(u << 1 | 1, mid + 1, r, a);
-            pull(u);
+            if (ql <= mid) modify(u << 1, l, mid, ql, qr, val);
+            if (qr > mid) modify(u << 1 | 1, mid + 1, r, ql, qr, val);
+            up(u);
         }
-    }
-    void set(i32 u, i32 l, i32 r, const i32 pos, const T val) {
-        if (l == r) {
-            tr[u] = val;
-        }
-        else {
-            i32 mid = l + r >> 1;
-            if (pos <= mid) set(u << 1, l, mid, pos, val);
-            else set(u << 1 | 1, mid + 1, r, pos, val);
-            pull(u);
-        }
-    }
+    };
     T qry(i32 u, i32 l, i32 r, const i32 ql, const i32 qr) {
         if (ql <= l && r <= qr) {
             return tr[u];
         }
+        down(u);
         i32 mid = l + r >> 1;
         T res = Te;
-        if (ql <= mid) res = merT(res, qry(u << 1, l, mid, ql, qr));
-        if (qr > mid) res = merT(res, qry(u << 1 | 1, mid + 1, r, ql, qr));
+        if (ql <= mid) res = mer(res, qry(u << 1, l, mid, ql, qr));
+        if (qr > mid) res = mer(res, qry(u << 1 | 1, mid + 1, r, ql, qr));
         return res;
     }
-    void set(const i32 pos, const T val) { set(1, 1, N, pos, val); }
-    T qry(const i32 ql, const i32 qr) { return qry(1, 1, N, ql, qr); }
 };

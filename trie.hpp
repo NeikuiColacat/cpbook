@@ -4,8 +4,8 @@ struct trie{
     vector<i32> cnt;
 
     trie(i32 siz)
-        : nex(vector<vector<i32>>(siz + 10, vector<i32>(26))),
-          cnt(vector<i32>(siz + 10)){}
+        : nex(siz + 10, vector<i32>(26)),
+          cnt(siz + 10){}
 
     void add(string s) {
         i32 n = si(s) - 1, p = root;

@@ -3,7 +3,7 @@ struct fenwick_tree {
     const i32 N;
     T e;
     vector<T> tr;
-    fenwick_tree(i32 siz , T e) : N(siz + 10) , e(e) , tr(vector<T>(N+10,e))  {}
+    fenwick_tree(i32 siz , T e) : N(siz + 10) , e(e) , tr(N+10,e)  {}
 
     void add(i32 pos, T val) {
         pos += 2;

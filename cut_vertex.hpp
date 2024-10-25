@@ -25,8 +25,8 @@ struct cut_vertex{
     cut_vertex(i32 siz, vector<vector<i32>> graph)
         : N(siz),
           g(graph),
-          dfn(vector<i32>(N + 1)),
-          low(vector<i32>(N + 1)) {
+          dfn(N+1),
+          low(N+1) {
         for (i32 i = 1; i <= N; i++) {
             if (!dfn[i]) { dfs(i, i); }
         }

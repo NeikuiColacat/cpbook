@@ -1,7 +1,7 @@
 struct dsu {
     const i32 N;
     vector<i32> p , siz;
-    dsu(i32 siz) : N(siz), p(vector<i32>(N + 1)) , siz(vector<i32>(N+1 , 1)) {
+    dsu(i32 siz) : N(siz), p(N+1) , siz(N+1 , 1) {
         iota(p.begin()+1,p.end(),1);
     }
 

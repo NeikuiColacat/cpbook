@@ -25,5 +25,5 @@ struct linear_basis{
         }
         return res;
     }
-    linear_basis() : bvec(vector<i64>(64)) {}
+    linear_basis() : bvec(64) {}
 };

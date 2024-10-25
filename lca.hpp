@@ -14,8 +14,8 @@ struct lca{
     lca(i32 siz , i32 root , vector<vector<i32>> graph)
         : N(siz),
           g(graph),
-          f(vector<vector<i32>>(N + 1, vector<i32>(M))),
-          dep(vector<i32>(N + 1)) {
+          f(N + 1, vector<i32>(M)),
+          dep(N+1) {
         dfs(root, root);
     }
     i32 qry(i32 u , i32 v){
