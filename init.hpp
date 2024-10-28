@@ -13,6 +13,7 @@ using i64 = long long;
 using P = std::pair<i32,i32>;
 template<typename T> void cmax(T & a , T b){a = max(a,b);}
 template<typename T> void cmin(T & a , T b){a = min(a,b);}
+constexpr i32 inf = 1e9;
 
 void solve() {
     ${0}
